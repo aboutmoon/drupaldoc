@@ -1,0 +1,6 @@
+name: custom_filter
+description: Custom filter to handle h1 token.
+type: module
+package: Custom
+version: '1.0'
+core: '8.x'

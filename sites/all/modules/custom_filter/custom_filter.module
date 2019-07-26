@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Converts <h1> into <h1 id="">
+ */
+function _filter_h1($text) {
+  $index = 0;
+  $text = preg_replace_callback('/<h1.*?>/', function($matches) use (&$index){
+      $index++;
+      return '<h1 id="' . 'text-content-'. $index .'">';
+  }, $text);
+
+  return $text;
+}

@@ -1,0 +1,9 @@
+services:
+  betterlogin_event_subscriber:
+    class: Drupal\betterlogin\EventSubscriber\BetterLoginSubscriber
+    tags:
+      - { name: event_subscriber }
+  betterlogin.route_subscriber:
+    class: Drupal\betterlogin\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
