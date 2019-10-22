@@ -1,0 +1,29 @@
+<meta http-equiv="refresh" content="3600">
+<style>
+  html,body,.dialog-off-canvas-main-canvas {
+    min-height:100%;
+    height:100%;
+    margin:0;
+    background:black;
+  }
+  #kaiosVideo {
+    width: 100%
+  }
+  .center {
+    top:50%;
+    position:relative;
+    transform: translateY(-50%); /* and all the browser variants of this */
+  }
+</style>
+<video id="kaiosVideo"class="center" controls="controls"  autoplay="autoplay" playsinline  muted loop="true">
+
+</video>
+
+<script>
+  var video = document.getElementById('kaiosVideo');
+
+  var source = document.createElement('source');
+  source.setAttribute('src','/sites/default/files/Dashboard.mp4?v=' + Math.random());
+
+  video.appendChild(source);
+</script>

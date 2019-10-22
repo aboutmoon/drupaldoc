@@ -15,5 +15,25 @@ function manualsness_theme_suggestions_page_alter(array &$suggestions, array $va
         array_splice($suggestions, 1, 0, 'page__node__' . $node->getType());
     }
 
+    // Add alias suggestions.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+    $path_alias = trim($result, '/');
+    $path_alias = str_replace('/', '-', $path_alias);
+    $suggestions[] = 'page__path_alias__'.$path_alias;
 
+}
+
+function manualsness_theme_preprocess_html(&$variables) {
+  var_dump($variables);
+  $xuacompatible = [
+    '#tag' => 'meta',
+    '#attributes' => [
+      'http-equiv' => 'x-ua-compatible',
+      'content' => 'ie=edge',
+    ],
+  ];
+
+
+  $variables['page']['#attached']['html_head'][] = [$xuacompatible, 'x-ua-compatible'];
 }
